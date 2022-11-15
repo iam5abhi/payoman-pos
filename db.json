@@ -1,0 +1,36 @@
+{
+  "users": [
+      {
+        "id":1,
+        "name": "vikas kumar",
+        "number": "9549726127",
+        "guestId":"vikaskumar",
+        "email": "vikas.codesoftic@gmail.com",
+        "dob":"10/9/1999"
+      },
+      {
+        "id":2,
+        "name": "sandeep kumar",
+        "number": "8432466629",
+        "guestId":"sandeepkumar",
+        "email": "sandeep.codesoftic@gmail.com",
+        "dob":"05/01/2001"
+      },
+      {
+        "id":3,
+        "name": "shalini kundal",
+        "number": "1234567890",
+        "guestId":"shalinikundal",
+        "email": "shalini.codesoftic@gmail.com",
+        "dob":"18/01/2000"
+      },
+      {
+        "id":4,
+        "name": "akash dutt",
+        "number": "9571920897",
+        "guestId":"akashdutt",
+        "email": "akashdutt420@gmail.com",
+        "dob":"17/10/1996"
+      }
+  ]
+}

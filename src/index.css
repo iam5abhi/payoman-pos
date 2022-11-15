@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+}
+body{
+  font-size:14px;
+}
+
+.form-control-primary {
+  margin: 10px;
+  opacity: 0.2;
+  border-radius: 2px;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 100;
+  padding: 70px 0 0 10px;
+  border-right: 1px solid #d3d3d3;
+}
+
+.left-sidebar {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 70px)
+}
+
+.sidebar-nav li .nav-link {
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar-brand {
+  margin: 10px;
+}
+
+
+/* Index*/
+.table {
+  text-align: left;
+}
+
+thead {
+  background-color: #00000049;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.row.content {
+  height: 550px
+}
+
+.sidenav {
+  color: whitesmoke;
+  padding-top: 20px;
+  background-color: #212529;
+  height: 100%;
+  font-size: 18px
+}
+
+.col-sm-6.text-left {
+  background: #0000001f;
+}
+
+button.btn.btn-outline-secondary {
+  padding: 15px 91px;
+}
+.product_name{
+  width: 50px;
+  height: 50px;
+}
+.hrtag1{
+  border: 1px solid green;
+  border-radius: 5px;
+  margin:0;
+}
+.hrtag{
+  border: 1px solid green;
+  border-radius: 5px;
+}
+.kotButton{
+  margin-top:6px;
+}
+.userIcon{
+  display:flex;
+justify-content: end;
+margin-top: -15px;
+}
+.UserForm{
+  font-size: 13px;
+ text-align: left;
+}
+.UserForm input{
+  font-size: 10px;
+}
+.UserForm select{
+  font-size: 10px;
+}
+.form-label {
+  margin-bottom:0;
+}
+.Icon{
+  display:flex;
+  justify-content: end; 
+}
+ul {
+  margin-bottom: 0;
+}
+.ulstyle{
+  margin-top:2px;
+  list-style: none;
+  border: 2px solid whitesmoke;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 10px;
+}
+.ulstyle li{
+  margin-left: -16px;
+}
+.borderType{
+  border: 2px hidden black;
+  border-radius: 16px;
+ padding: 0px 20px 0px 20px;
+background: rgba(128, 128, 128, 0.158);
+}
+.UserForm textarea {
+  font-size: 10px;
+}
+.eyeButton{
+position: relative;
+left: 46%;
+font-size: 14px;
+top:-13px;
+z-index:5;
+border: 1px solid;
+padding: 2px;
+background: white;
+border-radius: 5px;
+}
+.btntable{
+  border:  0.01em dashed;
+  padding: 15px 91px;
+  border-radius: 12px;
+}
