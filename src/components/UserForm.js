@@ -3,7 +3,6 @@ import axios from 'axios';
 import BaseUrl from '../config/BaseUrl';
 
 
-
 const UserForm = (props) => {
   const [SubmitData,setSubmitData]=useState({
     Phone_Number:"",   Guest_Name:"",  Email:"",   Gender:"",  
@@ -12,7 +11,6 @@ const UserForm = (props) => {
      TableNumber:'',  Totalamount:'',
     })
     props.getFuntionChild(SubmitData)
-    const[users,setUsers]=useState()
     const [searchData,setSearchData]=useState()
     const [displayData,setDisplayData]=useState()
     
@@ -20,7 +18,6 @@ const UserForm = (props) => {
       setSubmitData((pre)=>({
         ...pre,
         [e.target.name]:e.target.value,
-        items:users.tableBilling.items, TableNumber:users.tableBilling.TableNumber,  Totalamount:users.tableBilling.Totalamount
       }))
      };
     const searchSubmit =()=>{
@@ -30,7 +27,9 @@ const UserForm = (props) => {
     useEffect(()=>{
         axios.get(`${BaseUrl.url}/api/v2/Billing/${props.id}`,
         ).then((res)=>{
-            setUsers(res.data)
+            setSubmitData(()=>({
+          items:res.data.tableBilling.items, TableNumber:res.data.tableBilling.TableNumber,  Totalamount:res.data.tableBilling.Totalamount
+        }))
         }).catch((err)=>{
            console.log(err.message)
         });
