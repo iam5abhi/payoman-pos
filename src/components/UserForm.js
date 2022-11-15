@@ -11,6 +11,7 @@ const UserForm = (props) => {
      TableNumber:'',  Totalamount:'',
     })
     props.getFuntionChild(SubmitData)
+
     const [searchData,setSearchData]=useState()
     const [displayData,setDisplayData]=useState()
     
@@ -28,8 +29,8 @@ const UserForm = (props) => {
         axios.get(`${BaseUrl.url}/api/v2/Billing/${props.id}`,
         ).then((res)=>{
             setSubmitData(()=>({
-          items:res.data.tableBilling.items, TableNumber:res.data.tableBilling.TableNumber,  Totalamount:res.data.tableBilling.Totalamount
-        }))
+              items:res.data.tableBilling.items, TableNumber:res.data.tableBilling.TableNumber,  Totalamount:res.data.tableBilling.Totalamount
+            }))   
         }).catch((err)=>{
            console.log(err.message)
         });
