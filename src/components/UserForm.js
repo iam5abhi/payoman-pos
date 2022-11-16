@@ -38,11 +38,11 @@ const UserForm = (props) => {
       },[])
   return (
           <>
-            <form className="row UserForm">
+            <form onSubmit className="row UserForm">
               <div className="col-sm-6">
                   <label htmlFor="inputnumber4" className="form-label">Phone Number</label>
                    <input className="form-control" name="Phone_Number" id="inputNumber4" onChange={inputHandler} 
-                   value={!displayData?null:displayData.number} autoComplete="true"
+                   value={!displayData?null:displayData.number} autoComplete="true" required
                    /> 
                    <ul className='ulstyle'>
                     {!searchData?null:searchData.map((item) => (
@@ -75,17 +75,6 @@ const UserForm = (props) => {
                   <label htmlFor="inputnumber4" className="form-label">GSTIN</label>
                   <input type="text" name="GSTIN" onChange={inputHandler} className="form-control" id="inputNumber4" />
               </div>
-              <div className="col-sm-4">
-                  <label htmlFor="inputState" className="form-label">Payment Option</label>
-                  <select onChange={inputHandler} name="payment_option" id="inputState" className="form-select">
-                      <option selected>Choose...</option>
-                      <option value='cash'>cash</option>
-                      <option value='phone pay'>phone pay</option>
-                      <option value='google pay'>google pay</option>
-                      <option value='amazon pay'>amazon pay</option>
-                      <option value='paytm pay'>paytm pay</option>
-                  </select>
-              </div>
               <div className="col-sm-6">
               <label htmlFor="inputdate4" className="form-label">DOB</label>
                   <input type="date" name="DOB" onChange={inputHandler} className="form-control" id="inputDate4" 
@@ -98,6 +87,17 @@ const UserForm = (props) => {
               <div className="form-group">
                 <label htmlFor="exampleFormControlTextarea1">Address</label>
                 <textarea className="form-control" name="Address" onChange={inputHandler}  id="exampleFormControlTextarea1" rows={2} defaultValue={""} />
+              </div>
+              <div className="col-sm-12">
+                  <label htmlFor="inputState" className="form-label">Payment Option</label>
+                  <select onChange={inputHandler} name="payment_option" id="inputState" className="form-select">
+                      <option selected>Choose Payment Option</option>
+                      <option value='cash'>Cash</option>
+                      <option value='phonepe'>PhonePe</option>
+                      <option value='google pay'>Google Pay</option>
+                      <option value='amazon pay'>Amazon Pay</option>
+                      <option value='paytm'>Paytm</option>
+                  </select>
               </div>
           </form>
           

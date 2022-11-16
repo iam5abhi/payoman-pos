@@ -8,6 +8,7 @@ const Menu = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [userFormData,setUserFormData]=useState()
+  const [btnDisable,setBtnDisable]=useState(false)
   const [renderUserForm,setRenderUserForm]=useState(false)
   const [menuData,setMenuData]=useState()
   const [kotData,setKotaData]=useState()
@@ -18,10 +19,11 @@ const Menu = () => {
   const getFuntionChild=(data)=>{
     setUserFormData(data)
   }
-
+  //display updatePrice price
   const updatePrice = (qty, price) =>{
     return qty * price;
   }
+
   const updateItem = (_id,menuname,price, add_more=true) =>{
     let PerticularData = items.filter(menu => {
       return menu._id === _id;
@@ -69,26 +71,21 @@ const Menu = () => {
  const RemoveItems = (_id,menuname,price)=>{
   updateItem(_id, menuname, price, false)
  }
-//  const handleDelete = (itemId) => {
-//   const itemss = items.filter(item => item._id !== itemId);
-//   let newItem = items.splice(itemss, 0)
-//   setItems([newItem]);
-//   return
-// };
 
 const KotHandler = ()=>{
-  axios({
-    method: 'PATCH',
-    url: `${BaseUrl.url}/api/v2/Billing/${id}`,
-    data:items
-  }).then((res)=>{
-    GetKotHandler()
-    setItems([])
-  })
-  .catch((err)=>{
-      console.log(err.message)
-  })
-}
+     setBtnDisable(true)
+    axios({
+      method: 'PATCH',
+      url: `${BaseUrl.url}/api/v2/Billing/${id}`,
+      data:items
+    }).then((res)=>{
+      GetKotHandler()
+      setItems([])
+    })
+    .catch((err)=>{
+        console.log(err.message)
+    })
+  }
 const GetKotHandler = ()=>{
   axios({
     method: 'GET',
@@ -96,6 +93,7 @@ const GetKotHandler = ()=>{
     data:items
   }).then((res)=>{
     setKotaData(res.data.tableBilling)
+    setBtnDisable(false)
   })
   .catch((err)=>{
       console.log(err.message)
@@ -180,7 +178,7 @@ useEffect(()=>{
                   </div>
                 </div>
                 <div className="col-sm-4 ">
-                  <h6 className="bg-dark text-white p-2 "><span onClick={UserAddDetail}>Table</span>&nbsp;<span className='userIcon'>{renderUserForm===false?<i onClick={UserAddDetail} className="fa-solid fa-user"></i>:<i onClick={UserAddDetail} className="fa-sharp fa-solid fa-chair"></i>}</span></h6>
+                  <h6 className="bg-dark text-white p-2 ">Table</h6>
                   {renderUserForm===true? <UserForm id={id} getFuntionChild={getFuntionChild}/>:
                   <>
                   <table className="table ">
@@ -260,7 +258,7 @@ useEffect(()=>{
                     </div>
                   <div className='kotButton'>
                   
-                  {!renderUserForm?<><button type="button" onClick={KotHandler} className="btn btn-success btn-sm">Kot</button> &nbsp;</>:
+                  {!renderUserForm?<><button type="button" onClick={KotHandler} disabled={btnDisable} className="btn btn-success btn-sm">Kot</button> &nbsp;<button type="button" className="btn btn-success btn-sm" onClick={UserAddDetail}>fill</button></>:
                   <button type="button" onClick={SettleDataHandler} className="btn btn-success btn-sm">Settle</button>
                   }
                   </div>
