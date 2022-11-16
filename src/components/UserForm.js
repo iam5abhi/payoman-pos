@@ -5,11 +5,12 @@ import BaseUrl from '../config/BaseUrl';
 
 const UserForm = (props) => {
   const [SubmitData,setSubmitData]=useState({
-    Phone_Number:"",   Guest_Name:"",  Email:"",   Gender:"",  
-    GSTIN:"",  DOB:"",   Anniversary_Date:"", Address:"",
+    Phone_Number:" ",   Guest_Name:"",  Email:"",  gender:"",  
+    GSTIN:"",  DOB:"",   Anniversary_Date:"", Address:"", payment_option:"",
     items:[],
-     TableNumber:'',  Totalamount:'',
+    TableNumber:'',  Totalamount:'',
     })
+    console.log(SubmitData,"SubmitData")
     props.getFuntionChild(SubmitData)
 
     const [searchData,setSearchData]=useState()
@@ -61,13 +62,13 @@ const UserForm = (props) => {
                   value={!displayData?null:displayData[0].email} 
                   />
               </div>
-              <div className="col-sm-6">
-              <span className='mb-5'>Gender</span><br/>
-                <input type="radio" className="btn-check" name="options-outlined" id="success-outlined" autoComplete="off" defaultChecked />
+              <div className="col-sm-6" onChange={inputHandler} >
+              <span className='mb-5' >Gender</span><br/>
+                <input type="radio" className="btn-check" value="male" name="gender" id="success-outlined" autoComplete="off" />
                 <label className="btn btn-outline-dark btn-sm" htmlFor="success-outlined" style={{fontSize:"10px"}}>&nbsp; Male &nbsp;</label> &nbsp; 
-                <input type="radio" className="btn-check" name="options-outlined" id="danger-outlined" autoComplete="off" />
+                <input type="radio" className="btn-check" value="female" name="gender" id="danger-outlined" autoComplete="off" />
                 <label className="btn btn-outline-dark btn-sm" htmlFor="danger-outlined" style={{fontSize:"10px"}}>Female</label> &nbsp; 
-                <input type="radio" className="btn-check" name="options-outlined" id="danger-outlined" autoComplete="off" />
+                <input type="radio" className="btn-check" name="gender" value="other" id="danger-outlined" autoComplete="off" />
                 <label className="btn btn-outline-dark btn-sm" htmlFor="danger-outlined" style={{fontSize:"10px"}}>Other</label>
               </div>
               <div className="col-sm-8">
@@ -75,10 +76,14 @@ const UserForm = (props) => {
                   <input type="text" name="GSTIN" onChange={inputHandler} className="form-control" id="inputNumber4" />
               </div>
               <div className="col-sm-4">
-                  <label htmlFor="inputState" className="form-label">State</label>
-                  <select id="inputState" className="form-select">
+                  <label htmlFor="inputState" className="form-label">Payment Option</label>
+                  <select onChange={inputHandler} name="payment_option" id="inputState" className="form-select">
                       <option selected>Choose...</option>
-                      <option>...</option>
+                      <option value='cash'>cash</option>
+                      <option value='phone pay'>phone pay</option>
+                      <option value='google pay'>google pay</option>
+                      <option value='amazon pay'>amazon pay</option>
+                      <option value='paytm pay'>paytm pay</option>
                   </select>
               </div>
               <div className="col-sm-6">

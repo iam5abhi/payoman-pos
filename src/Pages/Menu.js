@@ -1,10 +1,11 @@
 import React,{useEffect, useState,useCallback} from 'react';
 import axios from 'axios';
 import BaseUrl from '../config/BaseUrl';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import UserForm from '../components/UserForm';
 
 const Menu = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [userFormData,setUserFormData]=useState()
   const [renderUserForm,setRenderUserForm]=useState(false)
@@ -14,7 +15,6 @@ const Menu = () => {
     _id:'', menuname:'', price:'', quantity:1,
   }]);
 
-  console.log(userFormData,"userFormData")
   const getFuntionChild=(data)=>{
     setUserFormData(data)
   }
@@ -82,7 +82,6 @@ const KotHandler = ()=>{
     url: `${BaseUrl.url}/api/v2/Billing/${id}`,
     data:items
   }).then((res)=>{
-    console.log(res.data)
     GetKotHandler()
     setItems([])
   })
@@ -116,8 +115,8 @@ const SettleDataHandler =()=>{
     url: `${BaseUrl.url}/api/v2/settle/${id}`,
     data:userFormData
   }).then((res)=>{
-    console.log(res.data)
     GetKotHandler()
+    navigate('/')
   })
   .catch((err)=>{
       console.log(err.message)
@@ -125,6 +124,7 @@ const SettleDataHandler =()=>{
 } 
 
 useEffect(()=>{
+  getFuntionChild()
   axios.get(`${BaseUrl.url}/api/v1/menu`,
   ).then((res)=>{
     setMenuData(res.data.data)
@@ -230,7 +230,6 @@ useEffect(()=>{
                           </thead>
                           <tbody>
                           {!data?null:data.items.map((item)=>{
-                          console.log(item,"item")
                           return(
                             <>
                             <tr key={item._id}>
@@ -260,8 +259,10 @@ useEffect(()=>{
                       <h6 className='mt-1'>total price :{!kotData?null:kotData.Totalamount}</h6>
                     </div>
                   <div className='kotButton'>
-                  <button type="button" onClick={KotHandler} className="btn btn-success btn-sm">Kot</button> &nbsp;
+                  
+                  {!renderUserForm?<><button type="button" onClick={KotHandler} className="btn btn-success btn-sm">Kot</button> &nbsp;</>:
                   <button type="button" onClick={SettleDataHandler} className="btn btn-success btn-sm">Settle</button>
+                  }
                   </div>
                 </div>
               </div>

@@ -8,6 +8,11 @@ const Navbar = () => {
         <NavLink className="navbar-brand col-sm-3 col-md-2 mr-0" href="/">Logo</NavLink>
         <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap">
+            <NavLink className="nav-link" to="/orders">Orders</NavLink>
+            </li>
+        </ul>
+        <ul className="navbar-nav px-3">
+            <li className="nav-item text-nowrap">
             <NavLink className="nav-link" to="/">Logout</NavLink>
             </li>
         </ul>
