@@ -21,6 +21,12 @@ const UserForm = (props) => {
         ...pre,
         [e.target.name]:e.target.value,
       }))
+      axios.get(`${BaseUrl.url}/api/v2/customerdetail?phoneNumber=${e.target.value}`,
+      ).then((res)=>{   
+        console.log(res.data,"res------")
+      }).catch((err)=>{
+         console.log(err.message)
+      });
      };
     const searchSubmit =()=>{
        setDisplayData(searchData)

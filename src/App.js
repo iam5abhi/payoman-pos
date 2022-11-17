@@ -4,9 +4,9 @@ import Home from './Pages/Home';
 import Menu from './Pages/Menu';
 import Navbar from './Pages/Navbar';
 import OrdersDetails from './Pages/OrdersDetails';
-import CostmerDetails from './Pages/CostmerDetails';
+import CustomerDetails from './Pages/CustomerDetails';
 import PrintPage from './components/PrintPage';
-import {Route,Routes} from 'react-router-dom'
+import {Route,Routes,Navigate} from 'react-router-dom'
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/menu/:id" element={<Menu/>} />
         <Route path="/orders" element={<OrdersDetails/>} />
-        <Route path="*" element={<Home/>} />
+        <Route path='/*' element={ < Navigate to="/" />} />
         {/* <Route path="/print" element={<PrintPage/>} /> */}
-        <Route path="/costmer-details" element={<CostmerDetails/>} />
+        <Route path="/customer-details" element={<CustomerDetails/>} />
         </Routes>
       </>
   );

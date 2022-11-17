@@ -258,8 +258,8 @@ useEffect(()=>{
                     </div>
                   <div className='kotButton'>
                   
-                  {!renderUserForm?<><button type="button" onClick={KotHandler} disabled={btnDisable} className="btn btn-success btn-sm">Kot</button> &nbsp;<button type="button" className="btn btn-success btn-sm" onClick={UserAddDetail}>fill</button></>:
-                  <button type="button" onClick={SettleDataHandler} className="btn btn-success btn-sm">Settle</button>
+                  {!renderUserForm?<><button type="button" onClick={KotHandler} disabled={btnDisable} className="btn btn-success btn-sm">Kot</button> &nbsp;<button type="button" className="btn btn-success btn-sm" onClick={UserAddDetail}>Settle Data</button></>:
+                   <> <button type="button" onClick={SettleDataHandler} className="btn btn-success btn-sm">Settle</button>  <button type="button" onClick={()=>setRenderUserForm(false)} className="btn btn-success btn-sm">Back</button></> 
                   }
                   </div>
                 </div>
