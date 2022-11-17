@@ -3,7 +3,9 @@ import './App.css';
 import Home from './Pages/Home';
 import Menu from './Pages/Menu';
 import Navbar from './Pages/Navbar';
-import Orders from './Pages/Orders';
+import OrdersDetails from './Pages/OrdersDetails';
+import CostmerDetails from './Pages/CostmerDetails';
+import PrintPage from './components/PrintPage';
 import {Route,Routes} from 'react-router-dom'
 
 function App() {
@@ -13,7 +15,10 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu/:id" element={<Menu/>} />
-        <Route path="/orders" element={<Orders/>} />
+        <Route path="/orders" element={<OrdersDetails/>} />
+        <Route path="*" element={<Home/>} />
+        {/* <Route path="/print" element={<PrintPage/>} /> */}
+        <Route path="/costmer-details" element={<CostmerDetails/>} />
         </Routes>
       </>
   );
